@@ -1,0 +1,128 @@
+*, /* Selector universal que selecciona todos los elementos */
+*::before, /* Selector de pseudo-elemento ::before de todos los elementos */
+*::after { /* Selector de pseudo-elemento ::after de todos los elementos */
+  box-sizing: border-box; /* Establece el modelo de caja para incluir padding y border en el tamaño total */
+}
+
+:root { /* Selector de la raíz del documento (elemento html) donde se definen variables CSS */
+  --container: 1024px; /* Variable para el ancho máximo del contenedor principal */
+  --radius: 12px; /* Variable para el radio de los bordes redondeados */
+  --space-1: .5rem; /* Variable de espaciado nivel 1 (más pequeño) */
+  --space-2: .75rem; /* Variable de espaciado nivel 2 */
+  --space-3: 1rem; /* Variable de espaciado nivel 3 */
+  --space-4: 1.5rem; /* Variable de espaciado nivel 4 */
+  --space-5: 1.75rem; /* Variable de espaciado nivel 5 */
+  --space-6: 2rem; /* Variable de espaciado nivel 6 (más grande) */
+
+  --fg: #111111; /* Variable para el color principal del texto (foreground - negro oscuro) */
+  --muted: #6b7280; /* Variable para el color de texto atenuado/secundario (gris) */
+
+  --border: #e5e7eb; /* Variable para el color de los bordes (gris claro) */
+  --bg: #ffffff; /* Variable para el color de fondo (blanco) */
+  --brand: #2563eb; /* Variable para el color de marca/brand (azul) */
+}
+
+
+
+html { scroll-behavior: smooth; } /* Activa el desplazamiento suave al hacer scroll */
+
+body { /* Selector del elemento body */
+  margin: 0; /* Elimina los márgenes por defecto del navegador */
+  background: var(--bg); /* Aplica el color de fondo usando la variable --bg */
+  color: var(--fg); /* Aplica el color de texto usando la variable --fg */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, /* Define la pila de fuentes del sistema */
+               "Noto Sans", Helvetica, Arial; /* Continuación de la pila de fuentes para mejor compatibilidad */
+  line-height: 1.6; /* Establece la altura de línea para mejor legibilidad */
+}
+
+
+
+.container { /* Clase para el contenedor principal */
+  max-width: var(--container); /* Establece el ancho máximo usando la variable --container */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0 var(--space-4); /* Añade padding horizontal usando la variable --space-4 */
+}
+
+a { /* Selector para todos los enlaces */
+  color: var(--brand); /* Aplica el color de marca a los enlaces */
+  text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+}
+
+
+
+.site-header { /* Clase para el encabezado del sitio */
+  padding: var(--space-4) 0; /* Añade padding vertical usando la variable --space-4 */
+  border-bottom: 1px solid var(--border); /* Añade un borde inferior usando el color de la variable --border */
+}
+
+.site-title { /* Clase para el título del sitio */
+  margin: 0 0 var(--space-2); /* Establece margen inferior, sin margen superior */
+  font-size: 1.75rem; /* Define el tamaño de fuente del título */
+  font-weight: 600; /* Establece el grosor de la fuente como semi-negrita */
+}
+
+.site-header nav a { /* Selector para enlaces dentro del nav del encabezado */
+  margin-right: var(--space-3); /* Añade margen derecho entre enlaces de navegación */
+  font-size: .95rem; /* Reduce ligeramente el tamaño de fuente */
+}
+
+
+
+.layout { /* Clase para el diseño de cuadrícula principal */
+  display: grid; /* Activa CSS Grid */
+  grid-template-columns: 2fr 1fr; /* Define dos columnas: la primera el doble de ancha que la segunda */
+  gap: 2.5rem; /* Establece el espacio entre elementos de la cuadrícula */
+  padding-top: var(--space-6); /* Añade padding superior */
+  padding-bottom: var(--space-6); /* Añade padding inferior */
+}
+
+
+.card, /* Selector para la clase card */
+.post { /* Selector para la clase post */
+  background: #ffffff; /* Color de fondo blanco */
+  padding: var(--space-5); /* Padding interno usando la variable --space-5 */
+  border: 1px solid var(--border); /* Borde sólido de 1px usando el color de la variable --border */
+  border-radius: var(--radius); /* Bordes redondeados usando la variable --radius */
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), /* Primera capa de sombra sutil */
+              0 1px 2px rgba(0,0,0,0.03); /* Segunda capa de sombra más sutil aún */
+}
+
+
+.small { /* Clase para texto pequeño/secundario */
+  color: var(--muted); /* Aplica el color atenuado */
+  font-size: .88rem; /* Reduce el tamaño de fuente */
+}
+
+h2 { /* Selector para encabezados de nivel 2 */
+  margin-top: 0; /* Elimina el margen superior */
+  margin-bottom: var(--space-2); /* Establece margen inferior */
+  font-size: 1.5rem; /* Define el tamaño de fuente del h2 */
+  font-weight: 600; /* Establece el grosor de la fuente como semi-negrita */
+}
+
+h3 { /* Selector para encabezados de nivel 3 */
+  margin-top: var(--space-4); /* Establece margen superior */
+  margin-bottom: var(--space-1); /* Establece margen inferior */
+  font-size: 1.15rem; /* Define el tamaño de fuente del h3 */
+  font-weight: 600; /* Establece el grosor de la fuente como semi-negrita */
+}
+
+blockquote { /* Selector para citas en bloque */
+  margin: var(--space-4) 0; /* Establece margen vertical, sin margen horizontal */
+  padding-left: var(--space-3); /* Añade padding a la izquierda */
+  border-left: 3px solid var(--border); /* Añade un borde izquierdo grueso para destacar la cita */
+  color: var(--muted); /* Aplica el color atenuado al texto de la cita */
+}
+
+
+
+.site-footer { /* Clase para el pie de página del sitio */
+  border-top: 1px solid var(--border); /* Añade un borde superior */
+  padding: var(--space-4) 0; /* Añade padding vertical */
+}
+
+.site-footer .small { /* Selector para elementos .small dentro del footer */
+  color: var(--muted); /* Aplica el color atenuado */
+  font-size: .9rem; /* Establece el tamaño de fuente */
+}
